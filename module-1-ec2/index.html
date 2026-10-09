@@ -1,61 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Resume</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Manvik Mourya K — Resume</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+
+	<!-- Dark Mode Toggle -->
+	<button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+		<span class="icon-sun">☀️</span>
+		<span class="icon-moon">🌙</span>
+	</button>
+
 	<div class="container">
+
+		<!-- Contact Top Bar -->
+		<div class="contact-bar">
+			<a href="mailto:manvik@example.com" class="contact-item">
+				<span class="contact-icon">✉</span>
+				<span>manvik@example.com</span>
+			</a>
+			<a href="tel:+919999999999" class="contact-item">
+				<span class="contact-icon">☎</span>
+				<span>+91 99999 99999</span>
+			</a>
+			<a href="https://linkedin.com/in/manvik" target="_blank" rel="noopener" class="contact-item">
+				<span class="contact-icon">in</span>
+				<span>linkedin.com/in/manvik</span>
+			</a>
+			<a href="https://github.com/manvik" target="_blank" rel="noopener" class="contact-item">
+				<span class="contact-icon">⌥</span>
+				<span>github.com/manvik</span>
+			</a>
+			<a href="#" class="contact-item">
+				<span class="contact-icon">📍</span>
+				<span>Kerala, India</span>
+			</a>
+		</div>
+
+		<!-- Header with Avatar -->
 		<header>
-			<h1>Manvik Mourya K</h1>
-			<p>Aspiring Technologist</p>
+			<div class="avatar-wrapper">
+				<img src="https://ui-avatars.com/api/?name=Manvik+Mourya+K&size=200&background=0a2f5a&color=ffffff&bold=true"
+				     alt="Manvik Mourya K"
+				     class="avatar">
+			</div>
+			<div class="header-text">
+				<h1>Manvik Mourya K</h1>
+				<p>Aspiring Technologist</p>
+			</div>
 		</header>
-		<section>
+
+		<section class="reveal">
 			<h2>Summary</h2>
 			<p>I am a BCA student with a strong interest in cloud computing, cybersecurity, and emerging technologies. I am passionate about learning new technical skills and understanding how technology can solve real-world problems. I have a foundational knowledge of programming, web technologies, databases, and operating systems. I am eager to gain practical experience, work collaboratively in a team, and contribute to innovative projects. My goal is to continuously improve my technical expertise and build a successful career in the IT industry.</p>
 		</section>
-		<section>
+
+		<section class="reveal">
 			<h2>Skills</h2>
 			<ul>
-				<liProgramming: C, Java, Python fundamentals</li>
-				<li>AzureWeb Development: HTML, CSS, JavaScript</li>
+				<li>Programming: C, Java, Python fundamentals</li>
+				<li>Web Development: HTML, CSS, JavaScript</li>
 				<li>Database Management: DBMS and SQL fundamentals</li>
 				<li>Operating Systems: Core OS concepts</li>
 				<li>Cybersecurity: Ethical hacking and Kali Linux as learning interests</li>
 				<li>Problem-Solving: Logical thinking and technical troubleshooting</li>
 			</ul>
 		</section>
-		<section>
+
+		<section class="reveal">
 			<h2>Experience</h2>
 			<h3>BCA Student</h3>
-			<p>I have academic experience in programming, web development, database management, and operating systems through my BCA coursework and college projects. I have worked with HTML, CSS, JavaScript, and programming fundamentals while developing my technical skills. I am eager to gain hands-on experience in cloud computing, cybersecurity, and real-world IT projects.</h3>
-			<p>Developed basic programs using C, Java, and Python.
-
-Created web pages using HTML, CSS, and JavaScript.
-
-Worked on academic assignments involving DBMS, SQL, and operating systems.
-
-Explored Kali Linux and developed an interest in ethical hacking and cybersecurity.
-
-Planned and collaborated on college web development projects related to gaming.
-
-Continuously explored new technologies and opportunities to improve my technical skills.</p>
+			<p>I have academic experience in programming, web development, database management, and operating systems through my BCA coursework and college projects. I have worked with HTML, CSS, JavaScript, and programming fundamentals while developing my technical skills. I am eager to gain hands-on experience in cloud computing, cybersecurity, and real-world IT projects.</p>
+			<p>
+				• Developed basic programs using C, Java, and Python.<br>
+				• Created web pages using HTML, CSS, and JavaScript.<br>
+				• Worked on academic assignments involving DBMS, SQL, and operating systems.<br>
+				• Explored Kali Linux and developed an interest in ethical hacking and cybersecurity.<br>
+				• Planned and collaborated on college web development projects related to gaming.<br>
+				• Continuously explored new technologies and opportunities to improve my technical skills.
+			</p>
 		</section>
-		<section>
+
+		<section class="reveal">
 			<h2>Education</h2>
 			<h3>Bachelor of Science in Computer Science</h3>
-			<p>University of Amrita Vishwa Vidyapeetham, 2nd year.</p>
+			<p>Amrita Vishwa Vidyapeetham, 2nd year.</p>
 		</section>
-		<section id="projects">
+
+		<section id="projects" class="reveal">
 			<h2>Projects</h2>
-			<p>Gaming Hub Website: Designed a gaming-themed website using HTML, CSS, and JavaScript.
-
-Vehicle Rental System: Worked on database design, SQL queries, and rental record management.
-
-Student Registration Form: Created a structured registration form using HTML and CSS.
-
-Python Projects: Practiced programming fundamentals, logical operations, and problem-solving.</p>
+			<p><strong>Gaming Hub Website:</strong> Designed a gaming-themed website using HTML, CSS, and JavaScript.</p>
+			<p><strong>Vehicle Rental System:</strong> Worked on database design, SQL queries, and rental record management.</p>
+			<p><strong>Student Registration Form:</strong> Created a structured registration form using HTML and CSS.</p>
+			<p><strong>Python Projects:</strong> Practiced programming fundamentals, logical operations, and problem-solving.</p>
 		</section>
+
+		<footer class="resume-footer">
+			<p>© <span id="year"></span> Manvik Mourya K — Resume</p>
+		</footer>
+
 	</div>
+
+	<script>
+		/* ---------- Dark Mode Toggle ---------- */
+		const toggle = document.getElementById('theme-toggle');
+		const root = document.documentElement;
+
+		// Load saved preference
+		const savedTheme = localStorage.getItem('theme');
+		if (savedTheme === 'dark') {
+			root.setAttribute('data-theme', 'dark');
+		}
+
+		toggle.addEventListener('click', () => {
+			const isDark = root.getAttribute('data-theme') === 'dark';
+			if (isDark) {
+				root.removeAttribute('data-theme');
+				localStorage.setItem('theme', 'light');
+			} else {
+				root.setAttribute('data-theme', 'dark');
+				localStorage.setItem('theme', 'dark');
+			}
+		});
+
+		/* ---------- Scroll Reveal Animation ---------- */
+		const revealEls = document.querySelectorAll('.reveal');
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+					observer.unobserve(entry.target);
+				}
+			});
+		}, { threshold: 0.12 });
+
+		revealEls.forEach((el) => observer.observe(el));
+
+		/* ---------- Dynamic Year ---------- */
+		document.getElementById('year').textContent = new Date().getFullYear();
+	</script>
+
 </body>
 </html>
